@@ -1,0 +1,72 @@
+/* Allgemeine Stile */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #d3d3d3; /* helles Grau */
+  color: #000;
+}
+
+/* Kopf- und Fusszeile */
+header, footer {
+  background-color: #000;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+}
+
+/* Navigation */
+nav ul {
+  list-style: none;
+  display: flex;
+  background-color: #000;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li {
+  margin: 0;
+  padding: 10px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Info-Bereich */
+#info {
+  background-color: #f0f0f0;
+  padding: 10px;
+  margin: 10px;
+}
+
+/* Hauptanzeigebereich */
+main {
+  padding: 20px;
+}
+
+/* Bilder anpassen */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Tabelle im Journal mit Linien */
+#journalTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+#journalTable th,
+#journalTable td {
+  border: 1px solid #000;
+  padding: 5px;
+}
+
+/* Responsive Design */
+@media only screen and (max-width: 600px) {
+  nav ul {
+    flex-direction: column;
+  }
+}

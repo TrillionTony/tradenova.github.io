@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tradenova - Journal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Tradenova</h1>
+  </header>
+  
+  <nav>
+    <ul>
+      <li><a href="index.html">Startseite</a></li>
+      <li><a href="journal.html">Journal</a></li>
+      <li><a href="uebermich.html">Über mich</a></li>
+      <li><a href="kontakt.html">Kontakt</a></li>
+      <li><a href="tipps.html">Tipps &amp; Tricks</a></li>
+    </ul>
+  </nav>
+  
+  <section id="info">
+    <p>Bitte fülle das Journalformular präzise aus.</p>
+  </section>
+  
+  <main>
+    <article>
+      <h2>Backtesting Journal</h2>
+      <p>
+        Dieses Journal hilft dir dabei, deine Trading-Backtesting-Ergebnisse genau zu dokumentieren. Wir bieten dir ein benutzerfreundliches Formular, um deine Einträge strukturiert abzulegen. Die Daten werden in einer übersichtlichen Tabelle zusammengefasst. Jeder Eintrag basiert auf deinen praktischen Erfahrungen und dient der stetigen Verbesserung deiner Strategien. Durch die genaue Aufzeichnung erkennst du wiederkehrende Muster und kannst deine Techniken optimieren. Die Seite ist so gestaltet, dass auch Einsteiger ohne Probleme navigieren können. Mit Geduld und regelmässiger Analyse wirst du deine Trading-Fähigkeiten deutlich steigern. Jeder Eintrag ist ein Schritt in Richtung einer erfolgreichen Trading-Karriere.
+      </p>
+      
+      <form action="#" method="post">
+        <label for="instrument">Instrument:</label>
+        <input type="text" id="instrument" name="instrument" required><br><br>
+        
+        <label for="datum">Datum:</label>
+        <input type="date" id="datum" name="datum" required><br><br>
+        
+        <label for="zeit">Zeit:</label>
+        <input type="time" id="zeit" name="zeit" required><br><br>
+        
+        <label>Handelsrichtung:</label>
+        <input type="radio" id="long" name="richtung" value="long" required>
+        <label for="long">Long</label>
+        <input type="radio" id="short" name="richtung" value="short">
+        <label for="short">Short</label><br><br>
+        
+        <label>Ergebnis:</label>
+        <input type="radio" id="gewonnen" name="ergebnis" value="gewonnen" required>
+        <label for="gewonnen">Gewonnen</label>
+        <input type="radio" id="verloren" name="ergebnis" value="verloren">
+        <label for="verloren">Verloren</label><br><br>
+        
+        <label for="risiko">Risiko (%):</label>
+        <input type="number" id="risiko" name="risiko" min="0" max="100" required><br><br>
+        
+        <label for="rr">RR (z.B. 1:2):</label>
+        <input type="text" id="rr" name="rr" pattern="^\d+:\d+$" placeholder="1:2" required><br><br>
+        
+        <label for="bemerkung">Bemerkungen:</label><br>
+        <textarea id="bemerkung" name="bemerkung" rows="5" cols="33" required></textarea><br><br>
+        
+        <input type="submit" value="Eintrag absenden">
+      </form>
+      
+      <!-- Tabelle zur Anzeige der Journal-Einträge mit Linien -->
+      <section id="journalTableSection">
+        <h3>Journal-Einträge</h3>
+        <table id="journalTable">
+          <thead>
+            <tr>
+              <th>Instrument</th>
+              <th>Datum</th>
+              <th>Zeit</th>
+              <th>Handelsrichtung</th>
+              <th>Ergebnis</th>
+              <th>Risiko (%)</th>
+              <th>RR</th>
+              <th>Bemerkungen</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Einträge werden per Script hinzugefügt -->
+          </tbody>
+        </table>
+        <p style="font-size: 0.9em; margin-top: 10px;">
+          Hinweis: Die Tabelle kann per Copy &amp; Paste in Excel abgespeichert werden.
+        </p>
+      </section>
+      
+      <script>
+        // Script zum Hinzufügen der Formulardaten in die Tabelle
+        document.querySelector('form').addEventListener('submit', function(e) {
+          e.preventDefault(); // Verhindert das Standardformularverhalten
+
+          const instrument = document.getElementById('instrument').value;
+          const datum = document.getElementById('datum').value;
+          const zeit = document.getElementById('zeit').value;
+          const richtung = document.querySelector('input[name="richtung"]:checked').value;
+          const ergebnis = document.querySelector('input[name="ergebnis"]:checked').value;
+          const risiko = document.getElementById('risiko').value;
+          const rr = document.getElementById('rr').value;
+          const bemerkung = document.getElementById('bemerkung').value;
+
+          const tbody = document.getElementById('journalTable').querySelector('tbody');
+          const newRow = tbody.insertRow();
+
+          newRow.insertCell().textContent = instrument;
+          newRow.insertCell().textContent = datum;
+          newRow.insertCell().textContent = zeit;
+          newRow.insertCell().textContent = richtung;
+          newRow.insertCell().textContent = ergebnis;
+          newRow.insertCell().textContent = risiko;
+          newRow.insertCell().textContent = rr;
+          newRow.insertCell().textContent = bemerkung;
+
+          // Formular zurücksetzen
+          this.reset();
+        });
+      </script>
+    </article>
+  </main>
+  
+  <footer>
+    <p>Erstellt von: Antonio Siino</p>
+  </footer>
+</body>
+</html>
